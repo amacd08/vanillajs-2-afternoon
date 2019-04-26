@@ -84,6 +84,36 @@
 </body>
 
 <script>
+    let characters = []
+    let list = document.getElementById('list')
+    let search = document.querySelector('input')
+    fetch('https://swapi.co/api/people')
+      .then(function(response) {
+          return response.json()
+      })
+      .then(function(response) {
+          characters.push(...response.results);
+          console.log(characters)
+          render();
+      })
+
+
+    function render() {
+        let html = characters.map(function (elem) {
+              let output = `<li>${elem.name}</li>`;
+              return output
+        })
+        html_output = html.join('')
+        console.log(html_output)
+        list.innerHTML= html_output
+
+    }
+    function filterText(this){
+        filtered = characters.filter()
+    }
+        
+
+    
 </script>
 
 </html>
